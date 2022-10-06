@@ -1,0 +1,17 @@
+Pathfinding Visualization
+
+To use:
+First left click will place start tile (orange)
+Second left click will place end tile (blue)
+
+Right click on start or end tile to remove it, then left click again to replace it
+
+All other right clicks will place walls, left click on wall tile to remove it
+
+Rectangles on right side are options to choose:
+- Which pathfinding algorithm to run
+- Whether to show algorithms step by step (including maze algorithm)
+- Button to run the algorithm
+- Button to generate a maze
+- Button to clear back a step (clear pathfinding results first, then all wall/start/end tiles)
+
