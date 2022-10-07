@@ -12,6 +12,16 @@ p.display.set_caption("Path Finding Visualization")
 p.init()
 FONT = p.font.SysFont("Arial", 20, True, False)
 
+# images
+WALL = p.image.load('fun_projects\pathfinding\images/wall.png')
+WALL = p.transform.scale(WALL,(WIDTH/ROWS, WIDTH/ROWS))
+
+COIN = p.image.load('fun_projects\pathfinding\images\coin.png')
+COIN = p.transform.scale(COIN,(WIDTH/ROWS, WIDTH/ROWS))
+
+MARIO = p.image.load('fun_projects\pathfinding\images\mario.jpeg')
+MARIO = p.transform.scale(MARIO,(WIDTH/ROWS, WIDTH/ROWS))
+
 class Node:
     def __init__(self, row, col, width, total_rows):
         self.row = row
@@ -74,7 +84,14 @@ class Node:
     
     def draw(self, win):
         p.draw.rect(win,self.color,(self.x,self.y,self.width,self.width))
-    
+        if self.is_barrier():
+            win.blit(WALL,(self.x,self.y))
+        if self.is_end():
+            win.blit(COIN,(self.x,self.y))
+        if self.is_start():
+            win.blit(MARIO,(self.x,self.y))
+            
+            
     def update_neighbors(self,grid):
         self.neighbors = []
         if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # check down
@@ -352,3 +369,4 @@ def main(win, width, ROWS):
 
 if __name__ == "__main__":
     main(WIN,WIDTH, ROWS)
+
