@@ -192,6 +192,8 @@ def dijkstra(draw,grid,start,end,slow):
                     open_set_hash.add(neighbor)
                     neighbor.make_open()
         
+        start.make_start()
+        end.make_end()
         if slow:
             draw()
         
@@ -238,6 +240,8 @@ def greedy(draw,grid,start,end,slow):
         if current != start:
             current.make_closed()
             closed_list.append(current)
+        start.make_start()
+        end.make_end()
         
         if slow:
             draw()
